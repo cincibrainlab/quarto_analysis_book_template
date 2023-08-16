@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto Analysis Book Template",
+    "section": "",
+    "text": "Quarto Analysis Book Template\nThe Quarto Analysis Book template is designed to streamline the preparation and publication of scientific manuscripts and reports. This platform facilitates collaboration among multiple users and integrates various data science tools, including R and Python, within a single environment. The organized file management structure ensures easy navigation and readability, allowing users to efficiently transition between preliminary analyses, testing, and the final manuscript.\n``` git clone ’’’"
+  },
+  {
+    "objectID": "index.html#quick-start",
+    "href": "index.html#quick-start",
+    "title": "Quarto Analysis Book Template",
+    "section": "Quick Start",
+    "text": "Quick Start"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "python_env.html#project-specific-information",
+    "href": "python_env.html#project-specific-information",
+    "title": "Appendix A — Python Environment",
+    "section": "A.1 Project-specific information",
+    "text": "A.1 Project-specific information\nPREFIX=/srv/Analysis/quarto_analyses\nENV_NAME=forge"
+  },
+  {
+    "objectID": "python_env.html#quick-start",
+    "href": "python_env.html#quick-start",
+    "title": "Appendix A — Python Environment",
+    "section": "A.2 Quick Start",
+    "text": "A.2 Quick Start\n\nAfter logging in, go to the setup subfolder in the Quarto book folder.\nRun:\n\n./setup_mm.sh\n\nTo start Jupyter Lab run and open a browser:\n\n./start_lab.shell\n\na link called srv will exist in the default notebook folder that links to all server files.\nTo add python modules, edit conda.yml and rerun ./setup_mm.sh\n\n\nTo use python in RStudio, open RStudio and create a new python file. A variable RETICULATE_PYTHON was added to the .Renviron to automatically load when the python interpreter activates."
+  },
+  {
+    "objectID": "python_env.html#setting-up-a-new-project",
+    "href": "python_env.html#setting-up-a-new-project",
+    "title": "Appendix A — Python Environment",
+    "section": "A.3 Setting up a new project",
+    "text": "A.3 Setting up a new project\n\nAfter creating your quarto book directories, edit the project.sh to modify the variable names. The script will setup a new virtual environment in the PREFIX directory with the same name as the Quarto book project."
+  },
+  {
+    "objectID": "python_env.html#file-information",
+    "href": "python_env.html#file-information",
+    "title": "Appendix A — Python Environment",
+    "section": "A.4 File information",
+    "text": "A.4 File information\n\nproject.sh: This file specifies the PREFIX and ENV_NAME variables. PREFIX is the root directory of the Python environments, and ENV_NAME is the name of the environment.\nconda.yml: This file can be modified to specify the name of the environment to place the packages into and what packages to install.\n\n\nA.4.1 Creating the Python environment\n\nMicromamba setup script: A script called setup_mm.sh is located in the project_name/setup directory. This script is responsible for downloading and installing a fresh copy of micromamba and setting up a Python environment.\nEnvironment specifications: The conda.yml file contains the specifications for the Python environment, including the packages to be installed.\nSetting the RETICULATE_PYTHON environment variable: The setup_mm.sh script also sets an environment variable for R’s reticulate package to know which Python environment to use. You can run this command anytime you log in to a shell to ensure the environment is up to date."
+  },
+  {
+    "objectID": "useful_tools.html#install-certificates-for-internet-access",
+    "href": "useful_tools.html#install-certificates-for-internet-access",
+    "title": "Appendix B — Useful tools",
+    "section": "B.1 Install certificates for internet access",
+    "text": "B.1 Install certificates for internet access\n\nsudo cp /srv/licenses/*.crt /usr/local/share/ca-certificates/\nsudo update-ca-certificates"
+  },
+  {
+    "objectID": "useful_tools.html#gpt-studio",
+    "href": "useful_tools.html#gpt-studio",
+    "title": "Appendix B — Useful tools",
+    "section": "B.2 GPT Studio",
+    "text": "B.2 GPT Studio\nhttps://github.com/MichelNivard/gptstudio\n\npacman::p_load(\"gptstudio\")"
+  },
+  {
+    "objectID": "useful_tools.html#midnight-commander",
+    "href": "useful_tools.html#midnight-commander",
+    "title": "Appendix B — Useful tools",
+    "section": "B.3 Midnight Commander",
+    "text": "B.3 Midnight Commander\nCommandline tool for file management.\n\n# echo 'Acquire::https::Verify-Peer \"false\";' | sudo tee /etc/apt/apt.conf.d/99disable-cert-check\nsudo apt-get update && sudo apt-get install mc"
+  },
+  {
+    "objectID": "useful_tools.html#to-use-the-jetbrains-mono-font-in-rstudio-follow-these-steps",
+    "href": "useful_tools.html#to-use-the-jetbrains-mono-font-in-rstudio-follow-these-steps",
+    "title": "Appendix B — Useful tools",
+    "section": "B.4 To use the Jetbrains Mono font in RStudio, follow these steps:",
+    "text": "B.4 To use the Jetbrains Mono font in RStudio, follow these steps:\n\nDownload the font from the JetBrains website (https://www.jetbrains.com/lp/mono/).\nInstall the font on your operating system by double-clicking the downloaded file and following the installation instructions.\nOpen RStudio.\nGo to “Tools” -&gt; “Global Options” -&gt; “Appearance”.\nIn the “Editor font” section, click on the “…” button.\nSelect “JetBrains Mono” from the font list.\nAdjust the font size and other preferences if needed.\nClick “OK” to save the changes.\n\nAfter following these steps, RStudio will use the Jetbrains Mono font in the script editor, console, and other parts of the IDE. The ligatures of the font should also work automatically.\n\ncd /tmp\nwget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip\nunzip JetBrainsMono-2.304.zip\nmkdir -p ~/.local/share/fonts\nmv fonts/JetBrainsMono-*.ttf ~/.local/share/fonts/\nfc-cache -f -v\nrm -rf JetBrainsMono-2.304.zip fonts OFL.txt AUTHORS.txt"
+  },
+  {
+    "objectID": "useful_tools.html#gitkraken",
+    "href": "useful_tools.html#gitkraken",
+    "title": "Appendix B — Useful tools",
+    "section": "B.5 GitKraken",
+    "text": "B.5 GitKraken\nLinux graphical client for git\n\ncd /tmp\n\n# Download GitKraken .deb package\nwget -O gitkraken.deb https://release.gitkraken.com/linux/gitkraken-amd64.deb\n\n# Install GitKraken using the downloaded .deb package\nsudo dpkg -i gitkraken.deb\nsudo apt-get install -f\n\n# Remove the downloaded .deb package\nrm gitkraken.deb\n\n# Define the content of the .desktop file\ndesktop_file_content='[Desktop Entry]\nName=GitKraken\nComment=GitKraken Git Client\nGenericName=GitKraken\nExec=gitkraken --no-sandbox\nIcon=gitkraken\nType=Application\nStartupNotify=true\nCategories=GNOME;GTK;Utility;Development;'\n\n# Create the .desktop file on the Desktop\necho \"$desktop_file_content\" &gt; ~/Desktop/GitKraken.desktop\n\n# Make the .desktop file executable\nchmod +x ~/Desktop/GitKraken.desktop"
+  }
+]

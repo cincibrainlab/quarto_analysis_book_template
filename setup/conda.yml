@@ -1,0 +1,11 @@
+name: forge
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - python =3.9
+  - ipykernel >=5.1
+  - ipywidgets
+  - jupyterlab
+  - mne
+  - mne-connectivity

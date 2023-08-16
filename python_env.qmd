@@ -1,0 +1,45 @@
+# Python Environment
+
+This guide will help you set up a Python environment for your project using micromamba and configure Jupyter Notebook to work with the created environment.
+
+## Project-specific information
+```
+PREFIX=/srv/Analysis/quarto_analyses
+ENV_NAME=forge
+```
+
+## Quick Start
+
+1. After logging in, go to the `setup` subfolder in the Quarto book folder.
+
+2. Run:
+```bash
+./setup_mm.sh
+```
+3. To start Jupyter Lab run and open a browser:
+```bash
+./start_lab.shell
+```
+* a link called `srv` will exist in the default notebook folder that links to all server files.
+
+* To add python modules, edit `conda.yml` and rerun `./setup_mm.sh`
+
+4. To use python in RStudio, open RStudio and create a new python file. A variable `RETICULATE_PYTHON` was added to the `.Renviron` to automatically load when the python interpreter activates.
+
+## Setting up a new project
+
+1. After creating your quarto book directories, edit the project.sh to modify the variable names. The script will setup a new virtual environment in the PREFIX directory with the same name as the Quarto book project.
+
+## File information
+
+1. **`project.sh`**: This file specifies the `PREFIX` and `ENV_NAME` variables. `PREFIX` is the root directory of the Python environments, and `ENV_NAME` is the name of the environment.
+
+2. **`conda.yml`**: This file can be modified to specify the name of the environment to place the packages into and what packages to install.
+
+### Creating the Python environment
+
+1. **Micromamba setup script**: A script called `setup_mm.sh` is located in the `project_name/setup` directory. This script is responsible for downloading and installing a fresh copy of micromamba and setting up a Python environment.
+
+2. **Environment specifications**: The `conda.yml` file contains the specifications for the Python environment, including the packages to be installed.
+
+3. **Setting the RETICULATE_PYTHON environment variable**: The `setup_mm.sh` script also sets an environment variable for R's `reticulate` package to know which Python environment to use. You can run this command anytime you log in to a shell to ensure the environment is up to date.

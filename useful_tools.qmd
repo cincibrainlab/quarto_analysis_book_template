@@ -1,0 +1,103 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+engine: knitr
+---
+
+# Useful tools
+Software installation and configuration routines that do not run by default. They may be used when setting up a new system or repairing a configuration. 
+
+Modify `#| eval: false` tag to `#| eval: true` to activate a section. These are `bash` blocks that should execute on Linux systems. You must use `Render` action, not `Run: Code Block`.
+
+## Install certificates for internet access
+```{bash}
+#| eval: false
+sudo cp /srv/licenses/*.crt /usr/local/share/ca-certificates/
+sudo update-ca-certificates
+```
+
+
+## GPT Studio
+https://github.com/MichelNivard/gptstudio
+
+```{r}
+#| eval: false
+
+pacman::p_load("gptstudio")
+```
+
+## Midnight Commander
+Commandline tool for file management.
+
+```{bash}
+#| eval: false
+
+# echo 'Acquire::https::Verify-Peer "false";' | sudo tee /etc/apt/apt.conf.d/99disable-cert-check
+sudo apt-get update && sudo apt-get install mc 
+
+```
+
+## To use the Jetbrains Mono font in RStudio, follow these steps:
+
+1. Download the font from the JetBrains website (https://www.jetbrains.com/lp/mono/).
+1. Install the font on your operating system by double-clicking the downloaded file and following the installation instructions.
+1. Open RStudio.
+1. Go to "Tools" -> "Global Options" -> "Appearance".
+1. In the "Editor font" section, click on the "..." button.
+1. Select "JetBrains Mono" from the font list.
+1. Adjust the font size and other preferences if needed.
+1. Click "OK" to save the changes.
+
+After following these steps, RStudio will use the Jetbrains Mono font in the script editor, console, and other parts of the IDE. The ligatures of the font should also work automatically.
+
+```{bash}
+#| eval: false
+
+cd /tmp
+wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
+unzip JetBrainsMono-2.304.zip
+mkdir -p ~/.local/share/fonts
+mv fonts/JetBrainsMono-*.ttf ~/.local/share/fonts/
+fc-cache -f -v
+rm -rf JetBrainsMono-2.304.zip fonts OFL.txt AUTHORS.txt
+```
+
+## GitKraken
+Linux graphical client for git
+
+```{bash}
+#| eval: false
+
+cd /tmp
+
+# Download GitKraken .deb package
+wget -O gitkraken.deb https://release.gitkraken.com/linux/gitkraken-amd64.deb
+
+# Install GitKraken using the downloaded .deb package
+sudo dpkg -i gitkraken.deb
+sudo apt-get install -f
+
+# Remove the downloaded .deb package
+rm gitkraken.deb
+
+# Define the content of the .desktop file
+desktop_file_content='[Desktop Entry]
+Name=GitKraken
+Comment=GitKraken Git Client
+GenericName=GitKraken
+Exec=gitkraken --no-sandbox
+Icon=gitkraken
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;Development;'
+
+# Create the .desktop file on the Desktop
+echo "$desktop_file_content" > ~/Desktop/GitKraken.desktop
+
+# Make the .desktop file executable
+chmod +x ~/Desktop/GitKraken.desktop
+
+```
+
+

@@ -1,4 +1,4 @@
-name: forge
+name: project_name
 channels:
   - anaconda
   - conda-forge
@@ -7,5 +7,3 @@ dependencies:
   - ipykernel >=5.1
   - ipywidgets
   - jupyterlab
-  - mne
-  - mne-connectivity

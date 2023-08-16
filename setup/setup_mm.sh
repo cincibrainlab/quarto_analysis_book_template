@@ -19,14 +19,12 @@ fi
 $PREFIX/micromamba/micromamba create -y --prefix $PREFIX/envs/$ENV_NAME --root-prefix $PREFIX/micromamba -f conda.yml
 
 
-# Setup symbolic link to access server from notebook
-if [ ! -L "$PREFIX/$ENV_NAME/srv" ]; then
+# Setup symbolic link to access the server from the notebook
+if [ -n "$LINKED_FOLDER" ] && [ ! -L "$PREFIX/$ENV_NAME/$LINKED_FOLDER" ]; then
   ln -s /srv/ $PREFIX/$ENV_NAME/srv
 else
-  echo "Symbolic link 'srv' already exists."
+  echo "Symbolic link $LINKED_FOLDER already exists or the environment variable is not set."
 fi
-
-#!/bin/bash
 
 # Prepare R to use python environment
 # Set the RETICULATE_PYTHON variable

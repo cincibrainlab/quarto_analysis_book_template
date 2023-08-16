@@ -1,0 +1,3 @@
+# Manuscript Example 
+
+see [Quarto basics](https://quarto.org/docs/authoring/markdown-basics.html) for examples

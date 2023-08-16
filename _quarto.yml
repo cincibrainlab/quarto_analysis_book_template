@@ -10,8 +10,18 @@ book:
   date: "8/16/2023"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+    - part: Loose Analyses
+      chapters: 
+       - analysis_example1.qmd
+    - part: Manuscripts
+      chapters:
+       - manuscripts/manuscript_example1.qmd
+    - part: Abstracts
+      chapters:
+        - abstracts/abstract_example1.qmd
+    - part: Grants
+      chapters:
+        - grants/grant_example1.qmd
     - references.qmd
   appendices: 
     - python_env.qmd

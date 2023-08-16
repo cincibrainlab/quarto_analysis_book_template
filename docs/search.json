@@ -1,38 +1,24 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Quarto Analysis Book Template",
+    "objectID": "grants/grant_example1.html",
+    "href": "grants/grant_example1.html",
+    "title": "4  Grant Example",
     "section": "",
-    "text": "Quarto Analysis Book Template\nThe Quarto Analysis Book template is designed to streamline the preparation and publication of scientific manuscripts and reports. This platform facilitates collaboration among multiple users and integrates various data science tools, including R and Python, within a single environment. The organized file management structure ensures easy navigation and readability, allowing users to efficiently transition between preliminary analyses, testing, and the final manuscript.\n``` git clone ’’’"
+    "text": "see Quarto basics for examples"
   },
   {
-    "objectID": "index.html#quick-start",
-    "href": "index.html#quick-start",
-    "title": "Quarto Analysis Book Template",
-    "section": "Quick Start",
-    "text": "Quick Start"
+    "objectID": "manuscripts/manuscript_example1.html",
+    "href": "manuscripts/manuscript_example1.html",
+    "title": "2  Manuscript Example",
+    "section": "",
+    "text": "see Quarto basics for examples"
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
+    "objectID": "abstracts/abstract_example1.html",
+    "href": "abstracts/abstract_example1.html",
+    "title": "3  Abstract Example",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever."
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "see Quarto basics for examples"
   },
   {
     "objectID": "python_env.html#project-specific-information",
@@ -96,5 +82,12 @@
     "title": "Appendix B — Useful tools",
     "section": "B.5 GitKraken",
     "text": "B.5 GitKraken\nLinux graphical client for git\n\ncd /tmp\n\n# Download GitKraken .deb package\nwget -O gitkraken.deb https://release.gitkraken.com/linux/gitkraken-amd64.deb\n\n# Install GitKraken using the downloaded .deb package\nsudo dpkg -i gitkraken.deb\nsudo apt-get install -f\n\n# Remove the downloaded .deb package\nrm gitkraken.deb\n\n# Define the content of the .desktop file\ndesktop_file_content='[Desktop Entry]\nName=GitKraken\nComment=GitKraken Git Client\nGenericName=GitKraken\nExec=gitkraken --no-sandbox\nIcon=gitkraken\nType=Application\nStartupNotify=true\nCategories=GNOME;GTK;Utility;Development;'\n\n# Create the .desktop file on the Desktop\necho \"$desktop_file_content\" &gt; ~/Desktop/GitKraken.desktop\n\n# Make the .desktop file executable\nchmod +x ~/Desktop/GitKraken.desktop"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto Analysis Book Template",
+    "section": "",
+    "text": "Quarto Analysis Book Template\nThe Quarto Analysis Book template is designed to streamline the preparation and publication of scientific manuscripts and reports. This platform facilitates collaboration among multiple users and integrates various data science tools, including R and Python, within a single environment. The organized file management structure ensures easy navigation and readability, allowing users to efficiently transition between preliminary analyses, testing, and the final manuscript.\nSee README for instructions on use."
   }
 ]

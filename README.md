@@ -1,1 +1,7 @@
-# quarto_analysis_book
+# Quarto Analysis Book Template 
+
+The Quarto Analysis Book template is designed to streamline the preparation and publication of scientific manuscripts and reports. This platform facilitates  collaboration among multiple users and integrates various data science tools, including R and Python, within a single environment. The organized file management structure ensures easy navigation and readability, allowing users to efficiently transition between preliminary analyses, testing, and the final manuscript.
+
+## Quick Start
+
+# Clone the repository. 

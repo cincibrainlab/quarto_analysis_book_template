@@ -21,7 +21,7 @@ $PREFIX/micromamba/micromamba create -y --prefix $PREFIX/envs/$ENV_NAME --root-p
 
 # Setup symbolic link to access the server from the notebook
 if [ -n "$LINKED_FOLDER" ] && [ ! -L "$PREFIX/$ENV_NAME/$LINKED_FOLDER" ]; then
-  ln -s /srv/ $PREFIX/$ENV_NAME/srv
+  ln -s $LINKED_FOLDER $PREFIX/$ENV_NAME/$LINKED_FOLDER
 else
   echo "Symbolic link $LINKED_FOLDER already exists or the environment variable is not set."
 fi
@@ -44,7 +44,7 @@ fi
 
 # Prepare the environment to use the OpenAI API key
 # Set the OPENAI_API_KEY variable
-OPENAI_API_KEY="" # sk- 
+OPENAI_API_KEY="" # sk- value from openai.com
 
 # Check if the OPENAI_API_KEY line exists in the .Renviron file
 grep -q "OPENAI_API_KEY=\"$OPENAI_API_KEY\"" ~/.Renviron

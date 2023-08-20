@@ -18,6 +18,36 @@ fi
 
 $PREFIX/micromamba/micromamba create -y --prefix $PREFIX/envs/$ENV_NAME --root-prefix $PREFIX/micromamba -f conda.yml
 
+Rscript -e 'if (!requireNamespace("IRkernel", quietly = TRUE)) install.packages("IRkernel"); IRkernel::installspec()'
+
+# update_shell_script() {
+#   local file="$1"
+
+#   if [ ! -f "$file" ]; then
+#     touch "$file"
+#   fi
+
+#   # Remove the existing delimiter block
+#   sed -i.bak '/^# >>> micromamba init >>>$/,/^# <<< micromamba init <<<$/{/^# >>> micromamba init >>>$/d;/^# <<< micromamba init <<<$/{d};d}' "$file"
+
+#   # Check if the delimiter block exists and append it if not
+#   grep -q "# >>> micromamba init >>>" "$file" || echo "# >>> micromamba init >>>" >> "$file"
+#   grep -q "export PATH=\"$PREFIX/micromamba:\$PATH\"" "$file" || echo "export PATH=\"$PREFIX/micromamba:\$PATH\"" >> "$file"
+#   grep -q "alias micromamba=\"$PREFIX/micromamba/micromamba --root-prefix $PREFIX/micromamba\"" "$file" || echo "alias micromamba=\"$PREFIX/micromamba/micromamba --root-prefix $PREFIX/micromamba\"" >> "$file"
+#   grep -q "# <<< micromamba init <<<" "$file" || echo "# <<< micromamba init <<<" >> "$file"
+# }
+
+# # Update both ~/.bash_profile and ~/.bashrc
+# update_shell_script "$HOME/.bash_profile"
+# update_shell_script "$HOME/.bashrc"
+
+# # Report the Micromamba status
+# echo "Micromamba is activated on login with the following configuration:"
+# grep -A2 "# >>> micromamba init >>>" "$HOME/.bash_profile" || grep -A2 "# >>> micromamba init >>>" "$HOME/.bashrc"
+
+# echo "Custom folders based on \$PREFIX:"
+# echo "Micromamba executable: $PREFIX/micromamba/micromamba"
+# echo "Environments: $PREFIX/envs"
 
 # Setup symbolic link to access the server from the notebook
 if [ -n "$LINKED_FOLDER" ] && [ ! -L "$PREFIX/$ENV_NAME/$LINKED_FOLDER" ]; then
@@ -44,7 +74,7 @@ fi
 
 # Prepare the environment to use the OpenAI API key
 # Set the OPENAI_API_KEY variable
-OPENAI_API_KEY="" # sk- value from openai.com
+OPENAI_API_KEY="" # sk- 
 
 # Check if the OPENAI_API_KEY line exists in the .Renviron file
 grep -q "OPENAI_API_KEY=\"$OPENAI_API_KEY\"" ~/.Renviron
@@ -57,3 +87,28 @@ if [ $? -ne 0 ]; then
 else
   echo "OPENAI_API_KEY is already set in .Renviron."
 fi
+
+
+# Add echo statements to the specified files for debugging
+add_echo() {
+  local file="$1"
+  local message="$2"
+
+  if [ -f "$file" ]; then
+    if ! grep -q "echo \"$message\"" "$file"; then
+      echo "echo \"$message\"" >> "$file"
+      echo "Added echo statement to $file"
+    else
+      echo "Echo statement already exists in $file"
+    fi
+  else
+    echo "$file not found"
+  fi
+}
+
+# Add echo statements to the shell startup scripts
+add_echo "/etc/profile" "Sourced /etc/profile"
+add_echo "$HOME/.bash_profile" "Sourced ~/.bash_profile"
+add_echo "$HOME/.bash_login" "Sourced ~/.bash_login"
+add_echo "$HOME/.profile" "Sourced ~/.profile"
+add_echo "$HOME/.bashrc" "Sourced ~/.bashrc"

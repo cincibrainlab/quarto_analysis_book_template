@@ -7,3 +7,7 @@ dependencies:
   - ipykernel >=5.1
   - ipywidgets
   - jupyterlab
+  - nb_conda_kernels
+  - r-essentials
+
+
